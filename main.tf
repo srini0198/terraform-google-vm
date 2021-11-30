@@ -5,9 +5,10 @@ resource "google_service_account" "default" {
 }
 
 resource "google_compute_instance" "default" {
-  name         = "my-vm"
-  machine_type = "e2-medium"
-  zone         = "us-central1-a"
+  name         = var.name
+  machine_type = var.machine_type
+  zone         = var.zone
+  project      = var.project_id
 
   boot_disk {
     initialize_params {
@@ -18,21 +19,20 @@ resource "google_compute_instance" "default" {
   }
 
   network_interface {
-    network = "default"
+    network = var.network
 
     access_config {
       // This section is to give the VM an external ip address.
     }
   }
 
-  metadata_startup_script = "sudo apt-get update && sudo apt-get install apache2 -y && echo '<!doctype html><html><body><h1> Welcome! The GCP-VM has been successfully provisioned.!</h1></body></html>' | sudo tee /var/www/html/index.html"
-
   tags = ["http-server"]
 }
 
 resource "google_compute_firewall" "http-server" {
   name    = "allow-http"
-  network = "default"
+  network = var.network
+  project      = var.project_id
 
   allow {
     protocol = "tcp"
