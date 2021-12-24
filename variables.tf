@@ -30,6 +30,7 @@ variable "boot_disk_image" {
 }
 
 // optional variables
+
 variable "boot_disk_size" {
   description = "The size of the boot disk in GigaBytes. Must be at least the size of the boot disk image."
   type        = number
