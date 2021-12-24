@@ -37,6 +37,6 @@ variable "boot_disk_size" {
 }
 
 variable "boot_disk_type" {
-  description = "The disk type. May be set to \"pd-standard\", \"pd-balanced\" or \"pd-ssd\"."
+  description = "The disk type. May be set to pd-standard, pd-balanced or pd-ssd"
   type        = string
 }
