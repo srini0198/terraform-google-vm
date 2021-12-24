@@ -24,6 +24,7 @@ resource "google_compute_instance" "default" {
   tags = ["http-server"]
 
 
+
 }
 
 resource "google_compute_firewall" "http-server" {

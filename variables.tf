@@ -30,11 +30,6 @@ variable "boot_disk_image" {
 }
 
 // optional variables
-variable "service_account_id_prefix" {
-  type        = string
-  description = "the id is used as a postfix in service account created."
-}
-
 variable "boot_disk_size" {
   description = "The size of the boot disk in GigaBytes. Must be at least the size of the boot disk image."
   type        = number
