@@ -30,7 +30,7 @@ variable "boot_disk_image" {
 }
 
 // optional variables
-variable "service_account_id" {
+variable "service_account_id_prefix" {
   type        = string
   description = "the id is used as a postfix in service account created."
 }
@@ -44,4 +44,3 @@ variable "boot_disk_type" {
   description = "The disk type. May be set to \"pd-standard\", \"pd-balanced\" or \"pd-ssd\"."
   type        = string
 }
-
