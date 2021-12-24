@@ -1,8 +1,3 @@
-resource "google_service_account" "default" {
-  account_id   = "${var.name}-${var.service_account_id_prefix}"
-  display_name = "${var.name}-${var.service_account_id_prefix}"
-  project      = var.project_id
-}
 
 resource "google_compute_instance" "default" {
   name         = var.name
@@ -28,11 +23,6 @@ resource "google_compute_instance" "default" {
 
   tags = ["http-server"]
 
-  service_account {
-    # Google recommends custom service accounts that have cloud-platform scope and permissions granted via IAM Roles.
-    email  = google_service_account.default.email
-    scopes = ["cloud-platform"]
-  }
 
 }
 
